@@ -1,5 +1,5 @@
 <?php
-    require_once'../index.php';//連接資料庫
+    require_once'../database.php';//連接資料庫
     if(isset($_POST["PhoneNumber"])){
     $count=0;
     $firstpoint=$_POST["firstpoint"];
@@ -21,7 +21,7 @@
         $result=mysqli_query($link,$sql);
         $myfile = fopen($create_randomnumber.".php", "w");}
         else{echo "<script>alert('序號已被使用，請重新輸入')</script>";
-             echo "<script>window.location.href='app.php'</script>";}
+             echo "<script>window.location.url='data1\index.php'</script>";}
         }
     ?>
         <?php
@@ -77,7 +77,7 @@
                     if($count1==0 ){if(!empty($row11[0])&&intval($row11[0]+1)<$row10["people"]){
                     $sql5="INSERT INTO `client` (`name`,`phonenumber`,`randomnumber`)VALUES(\'$guest_name\',\'$guest_PhoneNumber\',\'$create_randomnumber\')";
                     $result1=mysqli_query($link,$sql5);}else{echo "<script>alert(\'已經滿人囉，下次請快一點\')</script>";
-                        echo "<script>window.location.href=\'app.php\'</script>";
+                        echo "<script>window.locatiurl=\'data1\index.php\'</script>";
                     }
                     }else{
                                 }  }}}
@@ -91,12 +91,12 @@
                    <meta charset="UTF-8"></meta>
                    <meta http-equiv="X-UA-Compatible" content="IE=edge">
                    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-                   <link rel="stylesheet" href="style.css">
+                   <link rel="stylesheet" url="data1\index.php">
                    <title><?php echo $_SESSION["firstpoint"]?>&rArr; <?php echo $_SESSION["endpoint"]?></title>
-                   <link rel="stylesheet" href="../style.css"/>
-                   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+                   <link rel="stylesheet" url="style.css"/>
+                   <link url="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
                     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
-                    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+                    <link rel="stylesheet" url="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
                     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
                     <script src="side.js"></script>
                    <script src = "https://code.jquery.com/jquery-3.4.1.min.js"></script>
@@ -133,7 +133,7 @@
                                 data:{guest_PhoneNumber:<?php  echo $guest_PhoneNumber?>
                                       ,randomnumber:<?php echo $create_randomnumber?>},
                                 success:function(result) {
-                                    window.location.href="app.php"
+                                    window.location.url="data1\index.php"
                                     },
                                 error:function(xhr) {
                                 alert("Ajax request 發生錯誤");
@@ -184,7 +184,7 @@
                </body>
            </html>');
            
-           echo '<script>window.location.href="http://localhost/HTML/data1/'.$create_randomnumber.'.php?create_peple='."$create_peple".'&create_FirstName='."$create_FirstName".'&create_money='."$create_money".'&PhoneNumber='."$PhoneNumber".'&create_randomnumber='."$create_randomnumber".'&firstpoint='."$firstpoint".'&endpoint='."$endpoint".'"</script>';
+           echo '<script>window.location.url="data1/'.$create_randomnumber.'.php?create_peple='."$create_peple".'&create_FirstName='."$create_FirstName".'&create_money='."$create_money".'&PhoneNumber='."$PhoneNumber".'&create_randomnumber='."$create_randomnumber".'&firstpoint='."$firstpoint".'&endpoint='."$endpoint".'"</script>';
         ?>
     </body>
 </html>

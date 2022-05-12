@@ -1,4 +1,4 @@
-<?php require_once'../index.php';?>
+<?php require_once'../database.php';?>
 <?php
     $guest_PhoneNumber = $_POST["guest_PhoneNumber"];
     $create_randomnumber=$_POST["randomnumber"];

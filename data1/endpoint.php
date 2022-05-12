@@ -1,20 +1,20 @@
 <?php
-    require_once'../index.php';//連接資料庫
+    require_once'../database.php';//連接資料庫
 ?>
 <!doctype html>
 <html lang="zh-Hunt-TW">
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" url="style.css">
     
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+    <link url="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+    <link rel="stylesheet" url="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="side.js"></script>
     <title>NCU揪團搭車去</title>
-    <link rel="stylesheet" href="../style.css"/>
+    <link rel="stylesheet" url="style.css"/>
     <style>
       h1{
         margin:0%;
@@ -256,7 +256,7 @@
               }
           }echo "</tr>";
           }else{echo "<script>alert('目前無房間，請自行創房')</script>";
-              echo "<script>window.location.href='http://localhost/HTML/data1/app.php'</script>";
+              echo "<script>window.location.url='data1\index.php'</script>";
           }} 
 ?>
           </div>

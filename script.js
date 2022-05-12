@@ -9,5 +9,5 @@ btn.addEventListener("click",function(){
         name1.value="";
     }
     else{
-        window.location.href="index.html"}
+        window.location.url="index.html"}
 })
