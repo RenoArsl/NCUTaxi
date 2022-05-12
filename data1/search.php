@@ -223,7 +223,7 @@
             }
         }echo "</tr>";
     }else{echo "<script>alert('目前無此序號，請重新查找')</script>";
-        echo "<script>window.location.url='hdata1\index.php'</script>";
+        echo "<script>window.location.url='index.php'</script>";
     }} 
 
 ?>
@@ -239,5 +239,5 @@
 </html>
 <script>  var exit=document.getElementById("exit");
     exit.addEventListener("click",function(){
-        window.location.url="data1\index.php"})  
+        window.location.url="index.php"})  
 </script> 

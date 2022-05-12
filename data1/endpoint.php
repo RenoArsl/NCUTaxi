@@ -256,7 +256,7 @@
               }
           }echo "</tr>";
           }else{echo "<script>alert('目前無房間，請自行創房')</script>";
-              echo "<script>window.location.url='data1\index.php'</script>";
+              echo "<script>window.location.url='index.php'</script>";
           }} 
 ?>
           </div>

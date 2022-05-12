@@ -21,7 +21,7 @@
         $result=mysqli_query($link,$sql);
         $myfile = fopen($create_randomnumber.".php", "w");}
         else{echo "<script>alert('序號已被使用，請重新輸入')</script>";
-             echo "<script>window.location.url='data1\index.php'</script>";}
+             echo "<script>window.location.url='index.php'</script>";}
         }
     ?>
         <?php
@@ -77,7 +77,7 @@
                     if($count1==0 ){if(!empty($row11[0])&&intval($row11[0]+1)<$row10["people"]){
                     $sql5="INSERT INTO `client` (`name`,`phonenumber`,`randomnumber`)VALUES(\'$guest_name\',\'$guest_PhoneNumber\',\'$create_randomnumber\')";
                     $result1=mysqli_query($link,$sql5);}else{echo "<script>alert(\'已經滿人囉，下次請快一點\')</script>";
-                        echo "<script>window.locatiurl=\'data1\index.php\'</script>";
+                        echo "<script>window.locatiurl=\'index.php\'</script>";
                     }
                     }else{
                                 }  }}}
@@ -91,7 +91,7 @@
                    <meta charset="UTF-8"></meta>
                    <meta http-equiv="X-UA-Compatible" content="IE=edge">
                    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-                   <link rel="stylesheet" url="data1\index.php">
+                   <link rel="stylesheet" url="index.php">
                    <title><?php echo $_SESSION["firstpoint"]?>&rArr; <?php echo $_SESSION["endpoint"]?></title>
                    <link rel="stylesheet" url="style.css"/>
                    <link url="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
@@ -133,7 +133,7 @@
                                 data:{guest_PhoneNumber:<?php  echo $guest_PhoneNumber?>
                                       ,randomnumber:<?php echo $create_randomnumber?>},
                                 success:function(result) {
-                                    window.location.url="data1\index.php"
+                                    window.location.url="index.php"
                                     },
                                 error:function(xhr) {
                                 alert("Ajax request 發生錯誤");
