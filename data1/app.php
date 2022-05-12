@@ -7,16 +7,17 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="style.css">
+    
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="side.js"></script>
+   
     <title>NCU揪團搭車去</title>
-    <link rel="stylesheet" href="../style.css"/>
     <style>
       h1{
-        margin:0%;
+        margin: 0%;
         font-family: sans-serif;
         background-color: cadetblue;
         color: aliceblue;
@@ -27,6 +28,7 @@
         font-size: 20px;
       }
     </style>
+    <link rel="stylesheet" href="../style.css"/>
   </head>
 
   
@@ -45,28 +47,23 @@
         function show2(item){
           document.getElementById("dropdownMenuButton2").innerHTML = item.innerHTML;
           document.getElementById("check_endpoint").value = item.innerHTML;
-          document.getElementById("ser").classList.remove("visually-hidden");
+          document.getElementById("ser").classList.remove("visually-hidden")
           return document.getElementById("check_endpoint").value;
         }
         function show3(item){
           document.getElementById("dropdownMenuButton3").innerHTML = item.innerHTML;
           document.getElementById( 'firstpoint' ).value = item.innerHTML;
           return document.getElementById( 'firstpoint' ).value;
-        
         }
         function show4(item){
           document.getElementById("dropdownMenuButton4").innerHTML = item.innerHTML;
           document.getElementById( 'endpoint' ).value = item.innerHTML;
           return document.getElementById( 'endpoint' ).value
-          
         }
-        function check2(){
-        if(search.value.length>0){
-        }else{
-        return false;
-         }}
-         function check() {
-        if(PhoneNumber.value.length!=10){alert("手機號碼格式錯誤! 請重新輸入"); 
+      
+      </script>
+      <script> function check() {
+    if(PhoneNumber.value.length!=10){alert("手機號碼格式錯誤! 請重新輸入"); 
                                          create_FirstName.value="";
                                         create_peple.value="";
                                         create_money.value="";
@@ -74,7 +71,7 @@
                                         PhoneNumber.value="";
                                     return false;
                                 }else{
-                                    if( create_FirstName.value!="" && create_peple.value!="" &&  create_money.value!="" && String(PhoneNumber.value).charAt(0)=="0"  ){
+                                    if( create_FirstName.value!="" && create_peple.value!="" &&  create_money.value!="" && String(PhoneNumber.value).charAt(0)=="0" ){
                                             alert("資料輸入成功");
                                     }else{
                                         alert("資料輸入錯誤，請重試");
@@ -87,18 +84,21 @@
                                         }
         }
         function check1(){
-          if(document.getElementById("PhoneNumber1").value.length!=10 | String(document.getElementById("PhoneNumber1").value).charAt(0)!="0"){
-       
-        document.getElementById("PhoneNumber1").value="";
-        document.getElementById("name1").value="";
-        alert(document.getElementById("guest_randomnumber").value)
+        
+        alert(document.send.guest_PhoneNumber);
+        document.send.guest_PhoneNumber.value="";
+        document.send.guest_name02.value="";
         return false;
+    
+} 
+  function check2(){
+    if(search.value.length>0){
     }else{
-        alert("輸入成功!!!");
-    }
-    } 
-                             
-      </script>
+        return false;
+         }
+                            }  
+   
+  </script>
       <div class="container-all">
         <div class="container-left">
           <nav id="sidebar">
@@ -150,7 +150,6 @@
               <button class="btn btn-primary" type="submit">創建</button>
             </form>
             
-            
           </nav>
         </div>
         <div class="container-right">
@@ -158,7 +157,7 @@
           <div class="dropdown">
             <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
               出發點
-            </button>
+            </button> 
             <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
               <li><a class="dropdown-item" onclick="showGenre(this)">中央大學</a></li>
               <li><a class="dropdown-item" onclick="showGenre(this)">中壢車站</a></li> 
@@ -183,41 +182,41 @@
                 <input type="hidden"  name="check_endpoint"   id = "check_endpoint" value = "NULL" >
                 <button type="submit" class="btn btn-primary visually-hidden" id="ser">查詢</button>
               </form>
+              </br>
               <form  action="http://localhost/HTML/data1/search.php" method="POST" onsubmit="return check2()">
                 <div ><input type="text" id='search' name="search" placeholder="搜尋代碼" style="float:left;border-radius:10px ;text-align:center;height:50px;flex:2;"  /></div>
                 <div ><input type="submit"  class="btn btn-primary"></div>
             </form>
-        </div>
-        <div class="table">
+      <div class="table">
         <table>
+        
             <tr>
                 <th>序號</th>
-                <th >姓氏</th>
+                <th>姓氏</th>
                 <th>起點-終點</th>
                 <th>人數:</th>
                 <th>金額:</th>
                 <th>是否加入</th>
             </tr>
-            <tr>
-            <?php
-            $firstpoint=$_POST["check_firstpoint"];
-            $endpoint=$_POST["check_endpoint"];
-            $sql1="SELECT * FROM`room`WHERE`location`='$firstpoint-$endpoint'";
-            $result1=mysqli_query($link,$sql1);
-            if($result1){
-              if(mysqli_num_rows($result1)>0){
-                while($row=mysqli_fetch_assoc($result1)){
-                  $sql2='SELECT COUNT(randomnumber) FROM `client` WHERE randomnumber = '.$row["random"];
-                      $result2=mysqli_query($link,$sql2);
-                      $row1=mysqli_fetch_array($result2);
-  
-                  if($row["firstname"]!=NULL){
-                      echo "<tr>";
-                      echo "<td>".$row["random"]."</td>";
-                      echo "<td>".$row["firstname"]."先生/小姐</td>";
-                      echo "<td>".$row["location"]."</td>";
-                      echo "<td>".strval(intval($row1[0])+1)."/".$row["people"]."</td>";
-                      echo "<td>".$row["money"]."</td>";
+  <?php
+    $sql1="SELECT * FROM`room`;";
+    $result1=mysqli_query($link,$sql1);
+    if($result1){
+        if(mysqli_num_rows($result1)>0){
+            while($row=mysqli_fetch_assoc($result1)){
+                $sql2='SELECT COUNT(randomnumber) FROM `client` WHERE randomnumber = '.$row["random"];
+                    $result2=mysqli_query($link,$sql2);
+                    $row1=mysqli_fetch_array($result2);
+
+                if($row["firstname"]!=NULL){
+                    echo "<tr>";
+                    echo "<td>".$row["random"]."</td>";
+                    echo "<td>".mb_substr(strval($row["firstname"]),0,1,"utf-8")."先生/小姐</td>";
+                    echo "<td>".$row["location"]."</td>";
+                    echo "<td>".strval(intval($row1[0])+1)."/".$row["people"]."</td>";
+                    echo "<td>".$row["money"]."</td>";
+                    
+                      
                       if (intval($row1[0])+1<intval($row["people"])){
                       echo '<td>
                       <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#x'.$row["random"].'">
@@ -230,13 +229,16 @@
                               <h5 class="modal-title" id="enter_modal_label">個人訊息</h5>
                               <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                             </div>
-                          <form method="POST" action="http://localhost/HTML/data1/'.$row["random"].'.php" onsubmit="return check1()">
+                          <form method="POST" name=send action="http://localhost/HTML/data1/'.$row["random"].'.php" >
                           <div class="modal-body">
-                            <input type="tel" placeholder="請輸入手機號碼" id="PhoneNumber1" name="guest_PhoneNumber pattern="[0]{1}[0-9]{9}""/>
-                            <br>
+                            <input type="tel" placeholder="請輸入手機號碼" id="PhoneNumber1" name="guest_PhoneNumber" pattern="[0]{1}[0-9]{9}" required/>
+                            <br>';      
+                            echo'
                             <input type="text" placeholder="請輸入姓名" id="name1" name="guest_name02"/>
-                            <input type="hidden" name="guest_randomnumber" value = "'.$row["random"].'"
+                            <input type="hidden" id="guest_randomnumber" name="guest_randomnumber" value = "'.$row["random"].'"
                             </div>
+                            '; 
+                            echo'
                             <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">取消</button>
                             <button type="submit" class="btn btn-primary">加入</button>
@@ -248,17 +250,19 @@
                     </script>
                     '
                   ;}else{
-                          echo "<td><p>已滿人!!</p></td>";
-                      }
-                      
-                     
-              }
-          }echo "</tr>";
-          }else{echo "<script>alert('目前無房間，請自行創房')</script>";
-              echo "<script>window.location.href='http://localhost/HTML/data1/app.php'</script>";
-          }} 
-?>
-          </div>
+                        echo "<td><p>已滿人!!</p></td>";
+                    }
+                    
+                   
+                    echo "</tr>";   }
+        }
+    } 
+}
+
+
+    ?>
+    
+        </table>
           </div>
         </div>
       </div>
