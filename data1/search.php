@@ -1,5 +1,5 @@
 <?php
-    require_once'../database.php';//連接資料庫
+    require_once'../index.php';//連接資料庫
 ?>
 <!doctype html>
 <html lang="zh-Hunt-TW">

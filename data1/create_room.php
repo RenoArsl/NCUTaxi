@@ -1,5 +1,5 @@
 <?php
-    require_once'../database.php';//連接資料庫
+    require_once'../index.php';//連接資料庫
     if(isset($_POST["PhoneNumber"])){
     $count=0;
     $firstpoint=$_POST["firstpoint"];
