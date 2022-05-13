@@ -1,18 +1,18 @@
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="utf-8" />
-<title>PHP與MySQL建立網頁資料庫</title>
-</head>
-<body>
 <?php
-// 建立MySQL的資料庫連接 
-$link = @mysqli_connect( 
-            'localhost',  // MySQL主機名稱 
-            'root',       // 使用者名稱 
-            '',  // 密碼 
-            'client');  // 預設使用的資料庫名稱 
+    // require('config.php');
+
+    $servername = getenv('servername');
+    $dbname = getenv('dbname');
+    $username = getenv('username');
+    $password = getenv('password');
+
+      try {
+          $conn = new PDO ("mysql:host=$servername;dbname=$dbname;charset=utf8", $username, $password);
+          $conn -> setAttribute (PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+          // ERRMODE_EXCEPTION: 拋出 exceptions 異常。ATTR_ERRMODE：錯誤報告。
+      } catch (PDOException $e){
+
+        echo "Connected Failed: " . $e->getMessage();
+      }
 
 ?>
-</body>
-</html>
