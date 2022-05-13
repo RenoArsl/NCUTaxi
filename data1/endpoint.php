@@ -204,12 +204,12 @@
             $firstpoint=$_POST["check_firstpoint"];
             $endpoint=$_POST["check_endpoint"];
             $sql1="SELECT * FROM`room`WHERE`location`='$firstpoint-$endpoint'";
-            $result1=mysqli_query($link,$sql1);
+            $result1=mysqli_query($conn,$sql1);
             if($result1){
               if(mysqli_num_rows($result1)>0){
                 while($row=mysqli_fetch_assoc($result1)){
                   $sql2='SELECT COUNT(randomnumber) FROM `client` WHERE randomnumber = '.$row["random"];
-                      $result2=mysqli_query($link,$sql2);
+                      $result2=mysqli_query($conn,$sql2);
                       $row1=mysqli_fetch_array($result2);
   
                   if($row["firstname"]!=NULL){
