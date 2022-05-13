@@ -115,7 +115,7 @@
                </head>
                <body>
                    <div class="center">
-                   <h1 style="float:left;fontsize:50px"><i class="fas fa-solid fa-bus-school"></i><?php
+                   <h1 style="float:left;fontsize:50px"><?php
                    $sql7 = "SELECT * FROM`room`";
                    $result4 = $conn -> query($sql7);
                    if($result4){while($row=mysqli_fetch_assoc($result4)){
