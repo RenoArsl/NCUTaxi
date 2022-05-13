@@ -1,13 +1,10 @@
 <?php
-    // require('config.php');
+$url = parse_url(getenv("CLEARDB_DATABASE_URL"));
 
-    $servername = getenv('host');
-    $dbname = getenv('dbname');
-    $username = getenv('username');
-    $password = getenv('password');
+$server = $url["host"];
+$username = $url["user"];
+$password = $url["pass"];
+$db = substr($url["path"], 1);
 
-    $conn = mysqli_connect($servername, $username, $password, $dbname);
-    if ($error = mysqli_connect_error()) {
-      echo '<pre>' . print_r($error, TRUE) . '</pre>';
-    }
+$conn = new mysqli($server, $username, $password, $db);
 ?>
