@@ -10,7 +10,7 @@
     $PhoneNumber=$_POST["PhoneNumber"];
     $create_FirstName=$_POST["create_FirstName"];
     $sql2="SELECT `random` FROM `room`;";
-    $result2=mysqli_query($conn,$sql2);
+    $result2=$conn -> query($sql2);
     $sql="INSERT INTO `room`(`random`)value('{$create_randomnumber}')";
     while($row1=mysqli_fetch_assoc($result2)){
         if($create_randomnumber==$row1["random"]){
@@ -18,7 +18,7 @@
         }
     };
     if($count==0){
-        $result=mysqli_query($conn,$sql);
+        $result=$conn -> query($sql);
         $myfile = fopen($create_randomnumber.".php", "w");}
         else{echo "<script>alert('序號已被使用，請重新輸入')</script>";
              echo "<script>window.location.href='../index.php'</script>";}
@@ -42,11 +42,11 @@
             $sql2="UPDATE `room` SET `money`=$create_money WHERE `random`=$create_randomnumber";
             $sql3="UPDATE `room` SET `phone`=$phone WHERE `random`=$create_randomnumber";
             $sql4="UPDATE `room` SET `location`=\'$firstpoint-$endpoint\' WHERE `random`=$create_randomnumber";
-            $result=mysqli_query($conn,$sql);
-            $result=mysqli_query($conn,$sql1);
-            $result=mysqli_query($conn,$sql2);
-            $result=mysqli_query($conn,$sql3);
-            $result=mysqli_query($conn,$sql4);
+            $result=$conn -> query($sql);
+            $result=$conn -> query($sql1);
+            $result=$conn -> query($sql2);
+            $result=$conn -> query($sql3);
+            $result=$conn -> query($sql4);
             $_SESSION["name"]=$create_FirstName;
             $_SESSION["phone"]=$phone;
             $_SESSION["create_randomnumber"]=$create_randomnumber;
@@ -58,25 +58,25 @@
                 $create_randomnumber=$_POST["guest_randomnumber"];
                 $guest_PhoneNumber=$_POST["guest_PhoneNumber"];
                 $sql7="SELECT * FROM`client`;";
-                $result3=mysqli_query($conn,$sql7);
+                $result3=$conn -> query($sql7);
 
 
                 $sql10="SELECT * FROM`room` WHERE `random` =".$_POST["guest_randomnumber"];;
-                $result10=mysqli_query($conn,$sql10);
+                $result10=$conn -> query($sql10);
                 
                 
                 while($row=mysqli_fetch_assoc($result3)){
                     if($row["phonenumber"]==$guest_PhoneNumber){
                             $count1+=1;}};
                 $sql11="SELECT COUNT(randomnumber) FROM `client` WHERE randomnumber = ".$_POST["guest_randomnumber"];
-                $result11=mysqli_query($conn,$sql11);
+                $result11=$conn -> query($sql11);
                 $row11=mysqli_fetch_array($result11);
                 while($row10=mysqli_fetch_assoc($result10)){
                     if($count1==0 && empty($row11[0])){$sql5="INSERT INTO `client` (`name`,`phonenumber`,`randomnumber`)VALUES(\'$guest_name\',\'$guest_PhoneNumber\',\'$create_randomnumber\')";
-                        $result1=mysqli_query($conn,$sql5);}else{
+                        $result1=$conn -> query($sql5);}else{
                     if($count1==0 ){if(!empty($row11[0])&&intval($row11[0]+1)<$row10["people"]){
                     $sql5="INSERT INTO `client` (`name`,`phonenumber`,`randomnumber`)VALUES(\'$guest_name\',\'$guest_PhoneNumber\',\'$create_randomnumber\')";
-                    $result1=mysqli_query($conn,$sql5);}else{echo "<script>alert(\'已經滿人囉，下次請快一點\')</script>";
+                    $result1=$conn -> query($sql5);}else{echo "<script>alert(\'已經滿人囉，下次請快一點\')</script>";
                         echo "<script>window.location.href=\'index.php\'</script>";
                     }
                     }else{
@@ -154,7 +154,7 @@
                         </tr>
                         <?php
                         $sql7="SELECT * FROM`room`;";
-                        $result4=mysqli_query($conn,$sql7);
+                        $result4=$conn -> query($sql7);
                         if($result4){while($row=mysqli_fetch_assoc($result4)){
                             if($row["random"]==$create_randomnumber){
                                 echo "<tr>";
@@ -165,7 +165,7 @@
                                 echo "</tr>";}}}?>
                         
                    <?php  $sql6="SELECT * FROM`client`;";
-                    $result2=mysqli_query($conn,$sql6);
+                    $result2=$conn -> query($sql6);
                     if($result2){
                        if(mysqli_num_rows($result2)>0){
                            $count=2;
