@@ -6,11 +6,9 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" url="data1\style.css">
-    
-    <link url="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
-    <link rel="stylesheet" url="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="side.js"></script>
    
@@ -28,7 +26,8 @@
         font-size: 20px;
       }
     </style>
-    <link rel="stylesheet" url="style.css"/>
+    <link rel="stylesheet" href="../style.css"/>
+    <link rel="stylesheet" href="style.css">
   </head>
 
   
@@ -143,7 +142,7 @@
         <div class="container-right">
           <h2>找找看你要去哪</h2>
           <div class="dropdown">
-            <form  action="http://localhost/HTML/data1/search.php" method="POST" onsubmit="return check2()">
+            <form  action="search.php" method="POST" onsubmit="return check2()">
                 <div ><input type="text" id='search' name="search" placeholder="搜尋代碼" style="float:left;border-radius:10px ;text-align:center;height:50px;flex:2;"  /></div>
                 <div ><input type="submit"  class="btn btn-primary"></div>
             </form>
@@ -198,7 +197,7 @@
                             <h5 class="modal-title" id="enter_modal_label">個人訊息</h5>
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                           </div>
-                        <form method="POST" action="http://localhost/HTML/data1/'.$row["random"].'.php" onsubmit="return check1()">
+                        <form method="POST" action="'.$row["random"].'.php" onsubmit="return check1()">
                         <div class="modal-body">
                           <input type="tel" placeholder="請輸入手機號碼" id="PhoneNumber1" name="guest_PhoneNumber pattern="[0]{1}[0-9]{9}""/>
                           <br>
@@ -223,7 +222,7 @@
             }
         }echo "</tr>";
     }else{echo "<script>alert('目前無此序號，請重新查找')</script>";
-        echo "<script>window.location.url='index.php'</script>";
+        echo "<script>window.location.href='../index.php'</script>";
     }} 
 
 ?>
@@ -239,5 +238,5 @@
 </html>
 <script>  var exit=document.getElementById("exit");
     exit.addEventListener("click",function(){
-        window.location.url="index.php"})  
+        window.location.href="../index.php"})  
 </script> 
