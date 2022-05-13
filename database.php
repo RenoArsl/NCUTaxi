@@ -7,7 +7,7 @@
     $password = getenv('password');
 
       try {
-        $conn = new mysqli($servername, $username, $password, $dbname);
+        $conn = mysqli_connect($servername, $username, $password, $dbname) or die("Error " . mysqli_error($conn));
           
           // ERRMODE_EXCEPTION: 拋出 exceptions 異常。ATTR_ERRMODE：錯誤報告。
       } catch (PDOException $e){
