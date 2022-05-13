@@ -6,7 +6,7 @@
     $username = getenv('username');
     $password = getenv('password');
 
-    $conn = mysqli_connect($servername, $username, $password, $dbname) or die("Error " . mysqli_error($conn));
+    $conn = mysqli_connect($servername, $username, $password, $dbname);
     if ($error = mysqli_connect_error()) {
       echo '<pre>' . print_r($error, TRUE) . '</pre>';
     }
