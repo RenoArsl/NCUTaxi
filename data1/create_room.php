@@ -1,33 +1,35 @@
 <?php
-    require_once'../database.php';//連接資料庫
-    if(isset($_POST["PhoneNumber"])){
-    $count=0;
-    $firstpoint=$_POST["firstpoint"];
-    $endpoint=$_POST["endpoint"];
-    $create_randomnumber=rand(1,1000000000);
-    $create_peple=$_POST["create_peple"];
-    $create_money=$_POST["create_money"];
-    $PhoneNumber=$_POST["PhoneNumber"];
-    $create_FirstName=$_POST["create_FirstName"];
-    $sql2="SELECT `random` FROM `room`;";
-    $result2=$conn -> query($sql2);
-    $sql="INSERT INTO `room`(`random`)value('{$create_randomnumber}')";
-    while($row1=mysqli_fetch_assoc($result2)){
-        if($create_randomnumber==$row1["random"]){
-            $count+=1;
+require_once '../database.php'; //連接資料庫
+if (isset($_POST["PhoneNumber"])) {
+    $count = 0;
+    $firstpoint = $_POST["firstpoint"];
+    $endpoint = $_POST["endpoint"];
+    $create_randomnumber = rand(1, 1000000000);
+    $create_peple = $_POST["create_peple"];
+    $create_money = $_POST["create_money"];
+    $PhoneNumber = $_POST["PhoneNumber"];
+    $create_FirstName = $_POST["create_FirstName"];
+    $sql2 = "SELECT `random` FROM `room`;";
+    $result2 = $conn->query($sql2);
+    $sql = "INSERT INTO `room`(`random`)value('{$create_randomnumber}')";
+    while ($row1 = mysqli_fetch_assoc($result2)) {
+        if ($create_randomnumber == $row1["random"]) {
+            $count += 1;
         }
     };
-    if($count==0){
-        $result=$conn -> query($sql);
-        $myfile = fopen($create_randomnumber.".php", "w");}
-        else{echo "<script>alert('序號已被使用，請重新輸入')</script>";
-             echo "<script>window.location.href='../index.php'</script>";}
-        }
-    ?>
-        <?php
-            fwrite($myfile,"<?php require_once'../database.php'; 
+    if ($count == 0) {
+        $result = $conn->query($sql);
+        $myfile = fopen($create_randomnumber . ".php", "w");
+    } else {
+        echo "<script>alert('序號已被使用，請重新輸入')</script>";
+        echo "<script>window.location.href='../index.php'</script>";
+    }
+}
+?>
+<?php
+fwrite($myfile, "<?php require_once'../database.php'; 
             session_start();?>");
-            fwrite($myfile,'<?php if(isset($_GET["create_FirstName"])){
+fwrite($myfile, '<?php if(isset($_GET["create_FirstName"])){
             $create_FirstName=$_GET["create_FirstName"];
             $create_randomnumber=$_GET["create_randomnumber"];
             $create_peple=$_GET["create_peple"];
@@ -84,7 +86,7 @@
                 if(isset($guest_PhoneNumber)){}else{$guest_PhoneNumber=-1;}; 
                 if(isset($create_randomnumber)){}else{$create_randomnumber=$_POST["guest_randomnumber"];}    
            ?>');
-           fwrite($myfile,'<!DOCTYPE html>
+fwrite($myfile, '<!DOCTYPE html>
            <html>
                <head>
                 
@@ -183,8 +185,9 @@
                
                </body>
            </html>');
-           
-           echo '<script>window.location.href="'.$create_randomnumber.'.php?create_peple='."$create_peple".'&create_FirstName='."$create_FirstName".'&create_money='."$create_money".'&PhoneNumber='."$PhoneNumber".'&create_randomnumber='."$create_randomnumber".'&firstpoint='."$firstpoint".'&endpoint='."$endpoint".'"</script>';
-        ?>
-    </body>
+
+echo '<script>window.location.href="' . $create_randomnumber . '.php?create_peple=' . "$create_peple" . '&create_FirstName=' . "$create_FirstName" . '&create_money=' . "$create_money" . '&PhoneNumber=' . "$PhoneNumber" . '&create_randomnumber=' . "$create_randomnumber" . '&firstpoint=' . "$firstpoint" . '&endpoint=' . "$endpoint" . '"</script>';
+?>
+</body>
+
 </html>
